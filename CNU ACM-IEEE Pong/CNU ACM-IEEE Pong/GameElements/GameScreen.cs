@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Snake
+namespace CNU_ACM_IEEE_Pong
 {
     /// <summary>
+    /// Created by: Gerald McAlister
     /// A screen where the actual game is displayed.  Can
     /// have sprites and backgrounds (layered on top of each other) drawn
     /// on it.
