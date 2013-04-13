@@ -32,6 +32,10 @@ namespace CNU_ACM_IEEE_Pong
                 this.Close();
             }
 
+            if (e.KeyCode == Keys.W)
+            {
+                player1Position.Y += -1;
+            }
             gameScreen.setSpritePosition(0, player1Position.X, player1Position.Y);
         }
 
