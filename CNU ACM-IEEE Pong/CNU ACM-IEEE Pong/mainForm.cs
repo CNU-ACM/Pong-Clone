@@ -36,7 +36,9 @@ namespace CNU_ACM_IEEE_Pong
             {
                 player1Position.Y += -1;
             }
+
             gameScreen.setSpritePosition(0, player1Position.X, player1Position.Y);
+            gameScreen.Refresh();
         }
 
         /// <summary>
