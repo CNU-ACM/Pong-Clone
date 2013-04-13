@@ -30,6 +30,15 @@ namespace CNU_ACM_IEEE_Pong
         Point player2Position = Point.Empty;
 
         /// <summary>
+        /// Player 1's score.
+        /// </summary>
+        int player1Score = 0;
+        /// <summary>
+        /// Player 2's score.
+        /// </summary>
+        int player2Score = 0;
+
+        /// <summary>
         /// The timer for the gameplay.  Updates
         /// the gameplay every 1ms.
         /// </summary>
