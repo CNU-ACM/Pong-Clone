@@ -137,7 +137,6 @@ namespace CNU_ACM_IEEE_Pong
             if (gameScreen.checkCollision(0, 2) || gameScreen.checkCollision(1, 2))
             {
                 ballVelocity.X *= -1;
-                ballVelocity.Y *= -1;
             }
             ballPosition.X += ballVelocity.X;
             ballPosition.Y += ballVelocity.Y;
