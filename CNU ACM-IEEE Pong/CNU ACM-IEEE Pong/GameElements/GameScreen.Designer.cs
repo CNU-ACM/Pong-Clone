@@ -1,4 +1,4 @@
-﻿namespace Snake
+﻿namespace CNU_ACM_IEEE_Pong
 {
     partial class GameScreen
     {
