@@ -43,6 +43,7 @@ namespace CNU_ACM_IEEE_Pong
         /// <param name="e">Not used.</param>
         private void mainForm_Load(object sender, EventArgs e)
         {
+            gameScreen.addSprite(0, Image.FromFile("images/player1.png"), 0, 0);
         }
     }
 }

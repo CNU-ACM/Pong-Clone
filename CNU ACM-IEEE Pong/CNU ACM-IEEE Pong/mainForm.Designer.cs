@@ -40,6 +40,7 @@
             this.gameScreen.Size = new System.Drawing.Size(599, 416);
             this.gameScreen.TabIndex = 0;
             this.gameScreen.Text = "gameScreen1";
+            this.gameScreen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mainForm_KeyDown);
             // 
             // mainForm
             // 
