@@ -58,7 +58,7 @@ namespace CNU_ACM_IEEE_Pong
             if (e.KeyCode == Keys.W)
             {
                 //Stop the bar from going off the screen on the top
-                if (player1Position.Y < 0 || player1Position.Y > 0)
+                if (player1Position.Y > 0)
                 {
                     player1Position.Y += -10;
                 }
@@ -67,29 +67,28 @@ namespace CNU_ACM_IEEE_Pong
             if (e.KeyCode == Keys.S)
             {
                 //Stop the bar from going off the screen on the bottom
-                if (player1Position.Y < 416 || player1Position.Y < 416)
+                if (player1Position.Y < gameScreen.Height - 64)
                 {
                     player1Position.Y += 10;
                 }
             }
             //sets player1 position and refresh
             gameScreen.setSpritePosition(0, player1Position.X, player1Position.Y);
-            gameScreen.Refresh();
 
             //player2 move up
-            if (e.KeyCode == Keys.Up)
+            if (e.KeyData == Keys.I)
             {
                 //Stop the bar from going off the screen on the top
-                if (player2Position.Y < 0 || player2Position.Y > 0)
+                if (player2Position.Y > 0)
                 {
                     player2Position.Y += -10;
                 }
             }
             //player2 move down
-            if (e.KeyCode == Keys.Down)
+            if (e.KeyData == Keys.K)
             {
                 //Stop the bar from going off the screen on the bottom
-                if (player2Position.Y < 416 || player2Position.Y < 416)
+                if (player2Position.Y < gameScreen.Height - 64)
                 {
                     player2Position.Y += 10;
                 }
@@ -107,9 +106,20 @@ namespace CNU_ACM_IEEE_Pong
         /// <param name="e">Not used.</param>
         private void mainForm_Load(object sender, EventArgs e)
         {
-            gameScreen.addSprite(0, Image.FromFile("images/player1.png"), 0, 0);
-            gameScreen.addSprite(1, Image.FromFile("images/player2.png"), gameScreen.Width - 32, 0);
-            gameScreen.addSprite(2, Image.FromFile("images/ball.png"), gameScreen.Width / 2 - 16, gameScreen.Height / 2 - 32);
+            player1Position.X = 0;
+            player1Position.Y = 0;
+            player2Position.X = gameScreen.Width - 32;
+            player2Position.Y = 0;
+
+            ballPosition.X = gameScreen.Width / 2 - 16;
+            ballPosition.Y = gameScreen.Height / 2 - 32;
+
+            ballVelocity.X = 1;
+            ballVelocity.Y = 1;
+            
+            gameScreen.addSprite(0, Image.FromFile("images/player1.png"), player1Position.X, player1Position.Y);
+            gameScreen.addSprite(1, Image.FromFile("images/player2.png"), player2Position.X, player2Position.Y);
+            gameScreen.addSprite(2, Image.FromFile("images/ball.png"), ballPosition.X, ballPosition.Y);
 
             gamePlayTimer.Interval = 1;
             gamePlayTimer.Tick += new EventHandler(gamePlayTimer_Tick);
