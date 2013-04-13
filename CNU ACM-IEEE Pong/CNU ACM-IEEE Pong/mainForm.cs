@@ -48,17 +48,54 @@ namespace CNU_ACM_IEEE_Pong
         /// <param name="e">Used to get the key pressed from the user.</param>
         private void mainForm_KeyDown(object sender, KeyEventArgs e)
         {
+            //escape key will exit out of sceen
             if (e.KeyCode == Keys.Escape)
             {
                 this.Close();
             }
 
+            //player1 move up
             if (e.KeyCode == Keys.W)
             {
-                player1Position.Y += -1;
+                //Stop the bar from going off the screen on the top
+                if (player1Position.Y < 0 || player1Position.Y > 0)
+                {
+                    player1Position.Y += -10;
+                }
             }
-
+            //player1 move down
+            if (e.KeyCode == Keys.S)
+            {
+                //Stop the bar from going off the screen on the bottom
+                if (player1Position.Y < 416 || player1Position.Y < 416)
+                {
+                    player1Position.Y += 10;
+                }
+            }
+            //sets player1 position and refresh
             gameScreen.setSpritePosition(0, player1Position.X, player1Position.Y);
+            gameScreen.Refresh();
+
+            //player2 move up
+            if (e.KeyCode == Keys.Up)
+            {
+                //Stop the bar from going off the screen on the top
+                if (player2Position.Y < 0 || player2Position.Y > 0)
+                {
+                    player2Position.Y += -10;
+                }
+            }
+            //player2 move down
+            if (e.KeyCode == Keys.Down)
+            {
+                //Stop the bar from going off the screen on the bottom
+                if (player2Position.Y < 416 || player2Position.Y < 416)
+                {
+                    player2Position.Y += 10;
+                }
+            }
+            //sets player2 position and refresh
+            gameScreen.setSpritePosition(1, player2Position.X, player2Position.Y);
             gameScreen.Refresh();
         }
 
