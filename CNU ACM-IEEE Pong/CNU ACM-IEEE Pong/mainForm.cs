@@ -134,6 +134,35 @@ namespace CNU_ACM_IEEE_Pong
         /// <param name="e">Not used.</param>
         void gamePlayTimer_Tick(object sender, EventArgs e)
         {
+            if (gameScreen.checkCollision(0, 2) || gameScreen.checkCollision(1, 2))
+            {
+                ballVelocity.X *= -1;
+                ballVelocity.Y *= -1;
+            }
+            ballPosition.X += ballVelocity.X;
+            ballPosition.Y += ballVelocity.Y;
+            if (ballPosition.Y <0)
+            {
+                ballPosition.Y = 0;
+                ballVelocity.Y *= -1;
+            }
+            if (ballPosition.X  < 0)
+            {
+                ballPosition.X = 0;
+                ballVelocity.X *= -1;
+            }
+            if (ballPosition.Y > gameScreen.Height - 32)
+            {
+                ballPosition.Y = gameScreen.Height -32;
+                ballVelocity.Y *= -1;
+            }
+            if (ballPosition.X > gameScreen.Width - 32)
+            {
+                ballPosition.X = gameScreen.Width - 32;
+                ballVelocity.X *= -1;
+            }
+            gameScreen.setSpritePosition(2, ballPosition.X, ballPosition.Y);
+            gameScreen.Refresh();
         }
     }
 }
